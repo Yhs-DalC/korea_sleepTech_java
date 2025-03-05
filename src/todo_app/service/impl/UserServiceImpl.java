@@ -80,8 +80,8 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 	@Override
-	public void Login(String userId, String UserPw) {
-		userRepository.login(userId, UserPw);
+	public boolean findByUserIdAndUserPw(String userId, String UserPw) {
+		return userRepository.findByUserIdAndUserPw(userId, UserPw);//
 	}
 
 	@Override

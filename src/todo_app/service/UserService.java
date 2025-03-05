@@ -13,7 +13,7 @@ public interface UserService {
 	void createUser(UserSignUpRequestDto dto);
 	UserResponseDto findById(Long id);
 	void deleteUser(Long id);
-	void Login(String userId, String UserPw);
+	boolean findByUserIdAndUserPw(String userId, String UserPw);//
 	void Logout();
 	public List<UserResponseDto> AllUsers();
 	

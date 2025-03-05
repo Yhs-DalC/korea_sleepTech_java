@@ -31,20 +31,26 @@ public class UserRepository {
 		users.remove(user);
 	}
 	
-	public void login(String userId, String userPw) {
+	//findByUserIdAndUserPw
+	// 리스트의 id/pw를 Optional에 넣은 후 isEmpty로 널값이 아닌걸 확인하고 입력값과 비교하기!!
+	public boolean findByUserIdAndUserPw(String userId, String userPw) {
 		if(users.stream()
 				.filter(user -> user.getUserId().equals(userId))
 				.findFirst() != null) {
+			
 			if(users.stream()
 					.filter(user -> user.getUserPw().equals(userPw))
 					.findFirst() != null) {
+				
 				System.out.println("로그인 성공");
+				return true;
 			} else {
 				System.out.println("비밀번호가 일치하지 않습니다");
 			}
 		} else {
 			System.out.println("아이디가 일치하지 않습니다");
 		}
+		return false;
 	}
 	public void logout() {
 	}

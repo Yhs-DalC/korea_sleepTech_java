@@ -90,19 +90,7 @@ public class App {
 		return dto;
 	}
 	
-	private static UserSignInRequestDto createSignInRequest() {
-		UserSignInRequestDto dto = null;
-		
-		try {
-			String userId = getInput("id를 입력하세요");
-			String userPw = getInput("비밀번호를 입력하세요");
-			
-			dto = new UserSignInRequestDto(userId, userPw);
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return dto;
-	}
+
 	
 	private static UserSignUpRequestDto createSignUpRequest() {
 		UserSignUpRequestDto dto = null;
@@ -148,8 +136,8 @@ public class App {
 			if(loginCheck == false) {
 				String userId = getInput("id를 입력해주세요");
 				String userPw = getInput("pw를 입력해주세요");
-				USER_CONTROLLER.Login(userId, userPw);
-				loginCheck = true;
+				loginCheck = USER_CONTROLLER.findByUserIdAndUserPw(userId, userPw);
+				
 			}else {
 				System.out.println("이미 로그인되어 있습니다");
 			}

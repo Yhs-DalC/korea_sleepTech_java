@@ -27,8 +27,8 @@ public class UserController {
 		service.deleteUser(id);
 	}
 	
-	public void Login(String userId, String UserPw) {
-		service.Login(userId, UserPw);
+	public boolean findByUserIdAndUserPw(String userId, String UserPw) {
+		return service.findByUserIdAndUserPw(userId, UserPw);//
 		
 	}
 	public void Logout() {
