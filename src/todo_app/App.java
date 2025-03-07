@@ -40,7 +40,7 @@ public class App {
 	private static final Scanner sc = new Scanner(System.in);
 	private static final TaskController TASK_CONTROLLER = new TaskController();
 	private static final UserController USER_CONTROLLER = new UserController();
-	
+	private static boolean loginCheck = false;
 	public static void displayMenu() {
 		System.out.println("\n [메뉴 선택]");
 		System.out.println("1.회원 추가");
@@ -110,7 +110,7 @@ public class App {
 	}
 	
 	private static boolean processChoice(int choice) {
-		boolean loginCheck = false;
+		
 		switch(choice) {
 		case 1:{
 			UserSignUpRequestDto requestDto = createSignUpRequest();
@@ -137,7 +137,6 @@ public class App {
 				String userId = getInput("id를 입력해주세요");
 				String userPw = getInput("pw를 입력해주세요");
 				loginCheck = USER_CONTROLLER.findByUserIdAndUserPw(userId, userPw);
-				
 			}else {
 				System.out.println("이미 로그인되어 있습니다");
 			}

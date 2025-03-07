@@ -86,7 +86,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void Logout() {
-		System.out.println("로그아웃합니다");
 	}
 }
 	
